@@ -1,0 +1,27 @@
+<h1>Users</h1>
+
+<table>
+  <tr>
+    <th>email</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Disabled</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.email %></td>
+    <td><%= user.name %></td>
+    <td><%= user.lastname %></td>
+    <td><%= user.disabled %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to "Begin", :home_index %>

@@ -1,0 +1,14 @@
+<h1>Begin</h1>
+<%= Time.now %>
+
+<li><%= link_to "Sign Up", new_user_registration_path %></li>
+<li><%= link_to "Sign In", new_user_session_path %></li>
+<li><%= link_to "Edit your password", edit_user_registration_path %></li>
+<li><%= link_to "Edit Users", list_path %></li>
+<li><%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %></li>
+
+<% if user_signed_in? %>
+You are signed (<%= current_user.email %>)
+<% end %>
+
+
