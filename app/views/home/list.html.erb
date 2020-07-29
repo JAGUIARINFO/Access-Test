@@ -60,33 +60,36 @@
   <div class="card">
     <h3 class="card-header text-red text-center font-weight-bold text-dark text-uppercase py-4">Users</h3>
     <div class="card-body">
-      <div id="table" class="table-editable">
+      <div id="table">
         <table class="table table-bordered table-responsive-md table-striped text-center">
           <thead>
-          <tr>
-            <th>email</th>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>Disabled</th>
-            <th>Edit</th>
-          </tr>
+            <tr>
+              <th>email</th>
+              <th>First name</th>
+              <th>Last name</th>
+              <th>Disabled</th>
+              <th>Edit</th>
+            </tr>
           </thead>
           <tbody>
-          <% @users.each do |user| %>
-            <tr>
-              <td><%= user.email %></td>
-              <td><%= user.name %></td>
-              <td><%= user.lastname %></td>
-              <td><%= user.disabled %></td>
-              <td>
-                <span class="table-remove"><button type="button"
-                  class="btn btn-light btn-rounded btn-sm my-0"><%= link_to 'Edit', edit_user_path(user) %></button></span>
-              </td>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= user.email %></td>
+                <td><%= user.name %></td>
+                <td><%= user.lastname %></td>
+                <% if user.disabled %>
+                  <td><i class="fas fa-check-square"></i></td>
+                <% else %>
+                  <td><i class="fas fa-square"></i></td>
+                <% end %>
+                <td>
+                  <span class="table-remove"><button type="button"
+                    class="btn btn-light btn-rounded btn-sm my-0"><%= link_to 'Edit', edit_user_path(user) %></button></span>
+                </td>
 
-              <td></td>
-            </tr>
-          <% end %>
-              </tbody>
+              </tr>
+            <% end %>
+          </tbody>
         </table>
       </div>
     </div>
